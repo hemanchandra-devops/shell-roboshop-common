@@ -50,7 +50,7 @@ app_setup(){
     mkdir -p /app &>>$LOGS_FILE
     VALIDATE $? "setup an app directory"
 
-    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOGS_FILE
+    curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$LOGS_FILE
     VALIDATE $? "Download the application code"
 
     cd /app 
@@ -59,8 +59,8 @@ app_setup(){
     rm -rf /app/*
     VALIDATE $? "Application files may already exist"
 
-    unzip /tmp/catalogue.zip &>>$LOGS_FILE
-    VALIDATE $? "Unzip the catalogue code" 
+    unzip /tmp/$app_name.zip &>>$LOGS_FILE
+    VALIDATE $? "Unzip the $app_name code" 
 }
 
 nodejs_setup(){
