@@ -12,7 +12,7 @@ dnf install mysql -y &>>$LOGS_FILE
 VALIDATE $? "install mysql client"
 
 
-mysql -h "$MYSQL_HOST" -uroot -pRoboShop@1 -e "USE cities" &>>"$LOGS_FILE"
+mysql -h "$MYSQL_HOST" -uroot -pRoboShop@1 -e "use cities" &>>"$LOGS_FILE"
 
 if [ $? -ne 0 ]; then
     mysql -h "$MYSQL_HOST" -uroot -pRoboShop@1 < /app/db/schema.sql &>>"$LOGS_FILE"
